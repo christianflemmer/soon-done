@@ -22,6 +22,10 @@ export class PostCreateComponent {
     if (form.invalid) {
       return;
     }
-    this._postService.addPost(form.value.title, form.value.content)
+    // Reach out to post service and add new post
+    this._postService.addPost(form.value.title, form.value.content);
+
+    // Reset form
+    form.resetForm();
   }
 }

@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 
+import { IPost } from './posts/post.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  storedPosts = [];
+  public storedPosts: IPost[] = [];
 
   public onPostAdded(
-    post
+    post: IPost
   ): void {
     this.storedPosts.push(post);
   }

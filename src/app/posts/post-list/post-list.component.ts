@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface IPost {
   title: string;
@@ -12,7 +12,7 @@ interface IPost {
 })
 export class PostListComponent {
 
-  public posts: IPost[] = [];
+  @Input() public posts: IPost[] = [];
 
   /* public posts: IPost[] = [
     {

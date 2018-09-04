@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.scss']
 })
-
 export class PostCreateComponent {
-  public enteredValue: string = '';
-  public newPost: string = 'NO CONTENT!';
+  public enteredTitle: string = '';
+  public enteredContent: string = '';
 
-  public onAddPost(
+  // Listen to this event from the outside (parent component)
+  @Output() public postCreated: EventEmitter = new EventEmitter();
 
-  ): void {
-    this.newPost = this.enteredValue;
+  public onAddPost(): void {
+    const post = {
+      title: this.enteredTitle,
+      content: this.enteredContent
+    };
+    this.postCreated.emit(post);
   }
-
 }
